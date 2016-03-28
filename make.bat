@@ -1,5 +1,5 @@
 setlocal
-set appname=restartless
+set appname=no-duplicated-proxy-authentication
 
 copy buildscript\makexpi.sh .\
 bash makexpi.sh -n %appname% -o

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-appname=restartless
+appname=no-duplicated-proxy-authentication
 
 cp buildscript/makexpi.sh ./
 ./makexpi.sh -n $appname -o
