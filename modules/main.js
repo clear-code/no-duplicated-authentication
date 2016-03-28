@@ -106,7 +106,6 @@ function handleWindow(aWindow)
     }
     return;
   }
-
 }
 
 function handleCommonDialog(aWindow, aRootElement)
