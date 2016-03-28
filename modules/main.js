@@ -4,7 +4,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 */
 
-var BASE = 'extensions.auto-confirm@myokoym.net.';
+var BASE = 'extensions.no-duplicated-proxy-authentication@clear-code.com.';
 var prefs = require('lib/prefs').prefs;
 {
   if (prefs.getDefaultPref(BASE + 'debug') === null)
