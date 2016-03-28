@@ -19,6 +19,8 @@ var prefs = require('lib/prefs').prefs;
 var log = require('log').log;
 
 load('lib/WindowManager');
+var timer = Cu.import('resource://gre/modules/Timer.jsm', {});
+
 
 function toMatcher(aPatternString) {
   var expression = aPatternString.replace(/([\.\*\+\(\)\{\}\[\]])/g, '\\\1');
@@ -57,22 +59,24 @@ function hookAcceptButton(aDialog)
 
     log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
 
+    timer.setTimeout(function() {
     var dialogs = dialogsFor[key];
     dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
     dialogs.forEach(function(aRestDialog, aIndex) {
-      if (aRestDialog === aDialog) {
-        log(aIndex + ": skipped (original)");
-        return;
-      }
-
       log(aIndex + ": auto-fill");
       if (args.promptType !== 'promptPassword')
         aRestDialog.ui.loginTextbox.value = username;
       aRestDialog.ui.password1Textbox.value = password;
       aRestDialog.ui.button0.click();
     });
+    if (dialogs.length > 0)
+      log("All similar dialogs are processed.");
+    }, 100);
 
-    log("All known dialogs are processed.");
+    var index = dialogsFor[key].indexOf(aDialog);
+    if (index > -1)
+      dialogsFor[key].splice(index, 1);
+
     return originalOnAccept.call(this, ...aArgs);
   };
 
