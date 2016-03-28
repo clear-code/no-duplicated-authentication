@@ -60,17 +60,17 @@ function hookAcceptButton(aDialog)
     log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
 
     timer.setTimeout(function() {
-    var dialogs = dialogsFor[key];
-    dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
-    dialogs.forEach(function(aRestDialog, aIndex) {
-      log(aIndex + ": auto-fill");
-      if (args.promptType !== 'promptPassword')
-        aRestDialog.ui.loginTextbox.value = username;
-      aRestDialog.ui.password1Textbox.value = password;
-      aRestDialog.ui.button0.click();
-    });
-    if (dialogs.length > 0)
-      log("All similar dialogs are processed.");
+      var dialogs = dialogsFor[key];
+      dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
+      dialogs.forEach(function(aRestDialog, aIndex) {
+        log(aIndex + ": auto-fill");
+        if (args.promptType !== 'promptPassword')
+          aRestDialog.ui.loginTextbox.value = username;
+        aRestDialog.ui.password1Textbox.value = password;
+        aRestDialog.ui.button0.click();
+      });
+      if (dialogs.length > 0)
+        log("All similar dialogs are processed.");
     }, 100);
 
     var index = dialogsFor[key].indexOf(aDialog);
