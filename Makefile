@@ -1,4 +1,4 @@
-PACKAGE_NAME = no-duplicated-proxy-authentication
+PACKAGE_NAME = no-duplicated-authentication
 
 .PHONY: all xpi signed clean
 

@@ -1,5 +1,5 @@
 setlocal
-set appname=no-duplicated-proxy-authentication
+set appname=no-duplicated-authentication
 
 copy buildscript\makexpi.sh .\
 bash makexpi.sh -n %appname% -o

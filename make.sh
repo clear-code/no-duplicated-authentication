@@ -1,6 +1,6 @@
 #!/bin/sh
 
-appname=no-duplicated-proxy-authentication
+appname=no-duplicated-authentication
 
 cp buildscript/makexpi.sh ./
 ./makexpi.sh -n $appname -o
