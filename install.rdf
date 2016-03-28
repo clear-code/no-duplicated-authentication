@@ -3,13 +3,12 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
-                   em:id="auto-confirm@myokoym.net"
-                   em:name="Auto Confirm"
-                   em:version="0.5.1"
-                   em:description="Pushs any confirmation button automatically."
-                   em:creator="Masafumi Yokoyama"
-                   em:homepageURL="https://github.com/myokoym/auto-confirm"
-                   em:optionsURL="chrome://auto-confirm/content/config.xul"
+                   em:id="no-duplicated-proxy-authentication@myokoym.net"
+                   em:name="No Duplicated Proxy Authentication"
+                   em:version="0.1"
+                   em:description="Suppresses duplicated authentications on the startup, for a proxy."
+                   em:creator="ClearCode Inc."
+                   em:developer="Masafumi Yokoyama"
                    em:bootstrap="true"
                    em:type="2">
 
@@ -20,7 +19,7 @@
     <!-- Firefox -->
     <em:targetApplication>
       <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                       em:minVersion="38.0"
+                       em:minVersion="45.0"
                        em:maxVersion="46.0a1" />
     </em:targetApplication>
   </RDF:Description>
