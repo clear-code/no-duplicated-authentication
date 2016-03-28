@@ -11,9 +11,9 @@ var prefs = require('lib/prefs').prefs;
     prefs.setDefaultPref(BASE + 'debug', false);
 
   prefs.setDefaultPref(BASE + 'proxy',        true);
-  prefs.setDefaultPref(BASE + 'password',     false);
-  prefs.setDefaultPref(BASE + 'withoutRealm', false);
-  prefs.setDefaultPref(BASE + 'withRealm',    false);
+  prefs.setDefaultPref(BASE + 'password',     true);
+  prefs.setDefaultPref(BASE + 'withoutRealm', true);
+  prefs.setDefaultPref(BASE + 'withRealm',    true);
 }
 
 var log = require('log').log;
