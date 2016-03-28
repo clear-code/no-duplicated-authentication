@@ -3,10 +3,10 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
-                   em:id="no-duplicated-proxy-authentication@clear-code.com"
-                   em:name="No Duplicated Proxy Authentication"
+                   em:id="no-duplicated-authentication@clear-code.com"
+                   em:name="No Duplicated Authentication"
                    em:version="0.1"
-                   em:description="Suppresses duplicated authentications on the startup, for a proxy."
+                   em:description="Suppresses duplicated authentications for same target."
                    em:creator="ClearCode Inc."
                    em:developer="Masafumi Yokoyama"
                    em:bootstrap="true"
