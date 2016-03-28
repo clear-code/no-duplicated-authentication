@@ -37,7 +37,7 @@ var authWithRealmMatcher;
   passwordMatcher         = toMatcher(bundle.GetStringFromName('EnterPasswordFor'))
   authWithoutRealmMatcher = toMatcher(bundle.GetStringFromName('EnterUserPasswordFor'))
   authWithRealmMatcher    = toMatcher(bundle.GetStringFromName('EnterLoginForRealm'))
-})();
+}
 
 var dialogsFor = {};
 function hookAcceptButton(aDialog)
