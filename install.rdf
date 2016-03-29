@@ -5,7 +5,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="no-duplicated-authentication@clear-code.com"
                    em:name="No Duplicated Authentication"
-                   em:version="0.1"
+                   em:version="1.0"
                    em:description="Suppresses duplicated authentications for same target."
                    em:creator="ClearCode Inc."
                    em:developer="Masafumi Yokoyama"
