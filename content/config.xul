@@ -37,13 +37,13 @@
                 label="&config.target.proxy.label;"/>
       <checkbox id="extensions.no-duplicated-authentication@clear-code.com.withRealm-check"
                 preference="extensions.no-duplicated-authentication@clear-code.com.withRealm"
-                label="&config.target.proxy.label;"/>
+                label="&config.target.withRealm.label;"/>
       <checkbox id="extensions.no-duplicated-authentication@clear-code.com.withoutRealm-check"
                 preference="extensions.no-duplicated-authentication@clear-code.com.withoutRealm"
-                label="&config.target.proxy.label;"/>
+                label="&config.target.withoutRealm.label;"/>
       <checkbox id="extensions.no-duplicated-authentication@clear-code.com.password-check"
                 preference="extensions.no-duplicated-authentication@clear-code.com.password"
-                label="&config.target.proxy.label;"/>
+                label="&config.target.password.label;"/>
     </groupbox>
     <hbox align="center">
       <label value="&config.delay.label.before;"
