@@ -62,7 +62,7 @@ function hookAcceptButton(aDialog)
       return originalOnAccept.call(this, ...aArgs);
 
     var username = aDialog.ui.loginTextbox.value;
-    var password = aRestDialog.ui.password1Textbox.value;
+    var password = aDialog.ui.password1Textbox.value;
 
     log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
 
