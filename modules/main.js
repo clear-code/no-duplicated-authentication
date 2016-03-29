@@ -233,7 +233,6 @@ function shutdown()
   proxyAuthMatcher = undefined;
   dialogsFor = undefined;
   tabModalDialogObservers = undefined;
-  prefs.removePrefListener(listener);
   WindowManager = undefined;
   global = undefined;
 }
