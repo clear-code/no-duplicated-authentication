@@ -3,7 +3,7 @@ var EXPORTED_SYMBOLS = ['log'];
 var Cc = Components.classes;
 var Ci = Components.interfaces;
 
-var BASE = 'extensions.auto-confirm@myokoym.net.';
+var BASE = 'extensions.no-duplicated-authentication@clear-code.com.';
 
 var prefs = Cc['@mozilla.org/preferences;1']
               .getService(Ci.nsIPrefBranch)
