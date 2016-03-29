@@ -14,6 +14,7 @@ var prefs = require('lib/prefs').prefs;
   prefs.setDefaultPref(BASE + 'password',     true);
   prefs.setDefaultPref(BASE + 'withoutRealm', true);
   prefs.setDefaultPref(BASE + 'withRealm',    true);
+  prefs.setDefaultPref(BASE + 'delay',        100);
 }
 
 var log = require('log').log;
@@ -66,6 +67,7 @@ function hookAcceptButton(aDialog)
 
     log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
 
+    var delay = Math.max(0, prefs.getPref(BASE + 'delay'));
     timer.setTimeout(function() {
       var dialogs = dialogsFor[key];
       dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
@@ -78,7 +80,7 @@ function hookAcceptButton(aDialog)
       });
       if (dialogs.length > 0)
         log("All similar dialogs are processed.");
-    }, 100);
+    }, delay);
 
     var index = dialogsFor[key].indexOf(aDialog);
     if (index > -1)
