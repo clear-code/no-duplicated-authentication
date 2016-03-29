@@ -1,4 +1,4 @@
-var EXPORTED_SYMBOLS = ["log"];
+var EXPORTED_SYMBOLS = ['log'];
 
 var Cc = Components.classes;
 var Ci = Components.interfaces;
@@ -9,14 +9,14 @@ var prefs = Cc['@mozilla.org/preferences;1']
               .getService(Ci.nsIPrefBranch)
               .QueryInterface(Ci.nsIPrefBranch2);
 
-var consoleService = Cc["@mozilla.org/consoleservice;1"]
+var consoleService = Cc['@mozilla.org/consoleservice;1']
                        .getService(Ci.nsIConsoleService);
 
 function log(message) {
   try {
     let debugPref = prefs.getBoolPref(BASE + 'debug');
     if (debugPref) {
-      consoleService.logStringMessage("no-duplicated-authentication: " + message);
+      consoleService.logStringMessage('no-duplicated-authentication: ' + message);
     }
   } catch(e) {
   }
