@@ -39,6 +39,12 @@ var authWithRealmMatcher;
   passwordMatcher         = toMatcher(bundle.GetStringFromName('EnterPasswordFor'))
   authWithoutRealmMatcher = toMatcher(bundle.GetStringFromName('EnterUserPasswordFor'))
   authWithRealmMatcher    = toMatcher(bundle.GetStringFromName('EnterLoginForRealm'))
+  log("initialized matchers: " + JSON.stringify({
+    proxyAuthMatcher        : proxyAuthMatcher.source,
+    passwordMatcher         : passwordMatcher.source,
+    authWithoutRealmMatcher : authWithoutRealmMatcher.source,
+    authWithRealmMatcher    : authWithRealmMatcher.source
+  }));
 }
 
 var dialogsFor = {};
