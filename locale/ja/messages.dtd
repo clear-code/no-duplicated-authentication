@@ -1,46 +1,16 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<!ENTITY config.title       "Auto Confrimの設定">
+<!ENTITY config.title       "No Duplicated Authenticationの設定">
 <!ENTITY config.general     "全般">
-
-<!ENTITY config.add.label  "新しいルールを追加">
 
 <!ENTITY config.debug     "デバッグ用のログを出力する">
 
+<!ENTITY config.target.caption            "以下の認証プロンプトについて、同時に同じ内容で開かれたものをまとめて処理する">
+<!ENTITY config.target.proxy.label        "プロキシの認証">
+<!ENTITY config.target.password.label     "パスワード入力のみの認証">
+<!ENTITY config.target.withoutRealm.label "補足情報（Realm）無しのユーザー認証">
+<!ENTITY config.target.withRealm.label    "補足情報（Realm）有りのユーザー認証">
 
-<!ENTITY config.edit.title "新しいルール">
-<!ENTITY config.edit.title.template "ルールの編集: &#37;s">
-
-<!ENTITY config.edit.name.label  "ルール名">
-<!ENTITY config.edit.name.blank  "ルールには名前を付けてください!">
-<!ENTITY config.edit.name.duplicated "ルール名が重複しています！">
-<!ENTITY config.edit.group.label "種類">
-<!ENTITY config.edit.group.common.label  "コモンダイアログ">
-<!ENTITY config.edit.group.general.label "一般的なウィンドウ">
-<!ENTITY config.edit.type.label  "ダイアログの種類">
-<!ENTITY config.edit.type.alert.label     "アラート">
-<!ENTITY config.edit.type.confirm.label   "確認">
-<!ENTITY config.edit.type.confirmEx.label "高機能な確認">
-<!ENTITY config.edit.type.prompt.label    "文字入力">
-<!ENTITY config.edit.type.select.label    "選択">
-<!ENTITY config.edit.url.label   "ウィンドウのURL">
-<!ENTITY config.edit.title.label "以下をウィンドウのタイトルに含む">
-<!ENTITY config.edit.text.label  "以下をウィンドウ内の文字列に含む">
-<!ENTITY config.edit.capture.label "実際の操作を記録する">
-<!ENTITY config.edit.actions.label "行う操作">
-<!ENTITY config.edit.actions.type.accept.label  "OK">
-<!ENTITY config.edit.actions.type.cancel.label  "キャンセル">
-<!ENTITY config.edit.actions.type.check.label   "チェックする">
-<!ENTITY config.edit.actions.type.uncheck.label "チェックを外す">
-<!ENTITY config.edit.actions.type.push.label    "ボタンを押す">
-<!ENTITY config.edit.actions.type.click.label   "クリックする">
-<!ENTITY config.edit.actions.type.input.label   "テキストを入力">
-<!ENTITY config.edit.actions.params             "以下の文字列を含む物">
-<!ENTITY config.edit.actions.control.add.label      "操作を追加">
-<!ENTITY config.edit.actions.control.up.label       "▲">
-<!ENTITY config.edit.actions.control.up.tooltip     "上に移動">
-<!ENTITY config.edit.actions.control.down.label     "▼">
-<!ENTITY config.edit.actions.control.down.tooltip   "下に移動">
-<!ENTITY config.edit.actions.control.delete.label   "×">
-<!ENTITY config.edit.actions.control.delete.tooltip "削除">
+<!ENTITY config.delay.label.before "">
+<!ENTITY config.delay.label.after  "ミリ秒までの間に開かれたプロンプトは同時に開かれたものと見なす">

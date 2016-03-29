@@ -1,46 +1,16 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<!ENTITY config.title       "Configuration of Auto Confrim">
+<!ENTITY config.title       "Configuration of No Duplicated Authentication">
 <!ENTITY config.general     "General">
-
-<!ENTITY config.add.label  "Add New Rule">
 
 <!ENTITY config.debug     "Enable debug logs">
 
+<!ENTITY config.target.caption            "Process multiple prompts with same message at once, for following types">
+<!ENTITY config.target.proxy.label        "Proxy authentication">
+<!ENTITY config.target.password.label     "Password only authentication">
+<!ENTITY config.target.withoutRealm.label "User authentication without realm">
+<!ENTITY config.target.withRealm.label    "User authentication with realm">
 
-<!ENTITY config.edit.title "New Rule">
-<!ENTITY config.edit.title.template "Edit Rule: &#37;s">
-
-<!ENTITY config.edit.name.label  "Name">
-<!ENTITY config.edit.name.blank  "You must give a name to this rule!">
-<!ENTITY config.edit.name.duplicated "This name is duplicated!">
-<!ENTITY config.edit.group.label "Type">
-<!ENTITY config.edit.group.common.label  "Common Dialog">
-<!ENTITY config.edit.group.general.label "General Window">
-<!ENTITY config.edit.type.label  "Dialog Type">
-<!ENTITY config.edit.type.alert.label     "Alert">
-<!ENTITY config.edit.type.confirm.label   "Confirm">
-<!ENTITY config.edit.type.confirmEx.label "Confirm with extra features">
-<!ENTITY config.edit.type.prompt.label    "Prompt">
-<!ENTITY config.edit.type.select.label    "Select">
-<!ENTITY config.edit.url.label   "Window's URL">
-<!ENTITY config.edit.title.label "Having window title includes:">
-<!ENTITY config.edit.text.label  "Having any message or label including:">
-<!ENTITY config.edit.capture.label "Capture actual operation">
-<!ENTITY config.edit.actions.label "Actions">
-<!ENTITY config.edit.actions.type.accept.label  "Accept">
-<!ENTITY config.edit.actions.type.cancel.label  "Cancel">
-<!ENTITY config.edit.actions.type.check.label   "Check">
-<!ENTITY config.edit.actions.type.uncheck.label "Uncheck">
-<!ENTITY config.edit.actions.type.push.label    "Push a button">
-<!ENTITY config.edit.actions.type.click.label   "Click">
-<!ENTITY config.edit.actions.type.input.label   "Input text">
-<!ENTITY config.edit.actions.params             "with a label includes">
-<!ENTITY config.edit.actions.control.add.label      "Add New Action">
-<!ENTITY config.edit.actions.control.up.label       "▲">
-<!ENTITY config.edit.actions.control.up.tooltip     "Move Up">
-<!ENTITY config.edit.actions.control.down.label     "▼">
-<!ENTITY config.edit.actions.control.down.tooltip   "Move Down">
-<!ENTITY config.edit.actions.control.delete.label   "×">
-<!ENTITY config.edit.actions.control.delete.tooltip "Delete">
+<!ENTITY config.delay.label.before "Process prompts opened in same time, if they are opened in ">
+<!ENTITY config.delay.label.after  "msec.">

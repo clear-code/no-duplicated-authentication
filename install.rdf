@@ -9,6 +9,7 @@
                    em:description="Suppresses duplicated authentications for same target."
                    em:creator="ClearCode Inc."
                    em:developer="Masafumi Yokoyama"
+                   em:optionsURL="chrome://no-duplicated-authentication/content/config.xul"
                    em:bootstrap="true"
                    em:type="2">
 
