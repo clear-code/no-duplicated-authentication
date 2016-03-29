@@ -15,7 +15,10 @@ function log(aMessage, ...aArgs) {
   try {
     let debugPref = prefs.getBoolPref(BASE + 'debug');
     if (debugPref) {
-      console.log('no-duplicated-authentication: ' + aMessage, aArgs);
+      if (aArgs.length)
+        console.log('no-duplicated-authentication: ' + aMessage, ...aArgs);
+      else
+        console.log('no-duplicated-authentication: ' + aMessage);
     }
   } catch(e) {
   }
