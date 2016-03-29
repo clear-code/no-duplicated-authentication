@@ -7,9 +7,7 @@
 var BASE = 'extensions.no-duplicated-authentication@clear-code.com.';
 var prefs = require('lib/prefs').prefs;
 {
-  if (prefs.getDefaultPref(BASE + 'debug') === null)
-    prefs.setDefaultPref(BASE + 'debug', false);
-
+  prefs.setDefaultPref(BASE + 'debug',        false);
   prefs.setDefaultPref(BASE + 'proxy',        true);
   prefs.setDefaultPref(BASE + 'password',     true);
   prefs.setDefaultPref(BASE + 'withoutRealm', true);
