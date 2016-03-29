@@ -3,7 +3,7 @@ var EXPORTED_SYMBOLS = ["log"];
 var Cc = Components.classes;
 var Ci = Components.interfaces;
 
-var BASE = 'extensions.no-duplicated-authentication@clear-code.com.';
+var BASE = 'extensions.auto-confirm@myokoym.net.';
 
 var prefs = Cc['@mozilla.org/preferences;1']
               .getService(Ci.nsIPrefBranch)
@@ -16,7 +16,7 @@ function log(message) {
   try {
     let debugPref = prefs.getBoolPref(BASE + 'debug');
     if (debugPref) {
-      consoleService.logStringMessage("auto-confirm: " + message);
+      consoleService.logStringMessage("no-duplicated-authentication: " + message);
     }
   } catch(e) {
   }
