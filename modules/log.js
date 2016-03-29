@@ -9,14 +9,13 @@ var prefs = Cc['@mozilla.org/preferences;1']
               .getService(Ci.nsIPrefBranch)
               .QueryInterface(Ci.nsIPrefBranch2);
 
-var consoleService = Cc['@mozilla.org/consoleservice;1']
-                       .getService(Ci.nsIConsoleService);
+var { console } = Components.utils.import('resource://gre/modules/Console.jsm', {});
 
-function log(message) {
+function log(aMessage, ...aArgs) {
   try {
     let debugPref = prefs.getBoolPref(BASE + 'debug');
     if (debugPref) {
-      consoleService.logStringMessage('no-duplicated-authentication: ' + message);
+      console.log('no-duplicated-authentication: ' + aMessage, aArgs);
     }
   } catch(e) {
   }
