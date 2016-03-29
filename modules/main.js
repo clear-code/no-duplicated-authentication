@@ -23,7 +23,8 @@ var timer = Cu.import('resource://gre/modules/Timer.jsm', {});
 
 
 function toMatcher(aPatternString) {
-  var expression = aPatternString.replace(/([\.\*\+\(\)\{\}\[\]])/g, '\\\1');
+  var expression = aPatternString.replace(/([\.\*\+\(\)\{\}\[\]])/g, '\\\1')
+                                 .replace(/\%([0-9]+\$)?S/g, '.*');
   return new RegExp('^' + expression + '$');
 }
 
