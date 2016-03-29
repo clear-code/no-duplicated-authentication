@@ -15,6 +15,7 @@ var prefs = require('lib/prefs').prefs;
   prefs.setDefaultPref(BASE + 'withoutRealm', true);
   prefs.setDefaultPref(BASE + 'withRealm',    true);
   prefs.setDefaultPref(BASE + 'delay',        100);
+  prefs.setDefaultPref(BASE + 'maxRetry',     10);
 }
 
 var log = require('log').log;
@@ -67,8 +68,10 @@ function hookAcceptButton(aDialog)
 
     log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
 
+    var retryCount = 0;
+    var maxRetry = Math.max(0, prefs.getPref(BASE + 'maxRetry'));
     var delay = Math.max(0, prefs.getPref(BASE + 'delay'));
-    timer.setTimeout(function() {
+    timer.setTimeout(function delayedAutoFill() {
       var dialogs = dialogsFor[key];
       dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
       dialogs.forEach(function(aRestDialog, aIndex) {
@@ -78,8 +81,16 @@ function hookAcceptButton(aDialog)
         aRestDialog.ui.password1Textbox.value = password;
         aRestDialog.ui.button0.click();
       });
-      if (dialogs.length > 0)
+      if (dialogs.length > 0) {
         log("All similar dialogs are processed.");
+      }
+      else {
+        retryCount++;
+        if (retryCount <= maxRetry) {
+          log("No similar dialog, so retry later. (" + retryCount + ")");
+          timer.setTimeout(delayedAutoFill, delay);
+        }
+      }
     }, delay);
 
     var index = dialogsFor[key].indexOf(aDialog);
