@@ -42,7 +42,7 @@ var authWithRealmMatcher;
   passwordMatcher         = toMatcher(bundle.GetStringFromName('EnterPasswordFor'))
   authWithoutRealmMatcher = toMatcher(bundle.GetStringFromName('EnterUserPasswordFor'))
   authWithRealmMatcher    = toMatcher(bundle.GetStringFromName('EnterLoginForRealm'))
-  log("initialized matchers: " + JSON.stringify({
+  log('initialized matchers: ' + JSON.stringify({
     proxyAuthMatcher        : proxyAuthMatcher.source,
     passwordMatcher         : passwordMatcher.source,
     authWithoutRealmMatcher : authWithoutRealmMatcher.source,
@@ -66,7 +66,7 @@ function hookAcceptButton(aDialog)
     var username = aDialog.ui.loginTextbox.value;
     var password = aDialog.ui.password1Textbox.value;
 
-    log("authenticated: " + args.text + ", username = " + username + ", password = " + password);
+    log('authenticated: ' + args.text + ', username = ' + username + ', password = ' + password);
 
     var retryCount = 0;
     var maxRetry = Math.max(0, prefs.getPref(BASE + 'maxRetry'));
@@ -75,19 +75,19 @@ function hookAcceptButton(aDialog)
       var dialogs = dialogsFor[key];
       dialogsFor[key] = []; // clear already opened dialogs before dispatching, to avoid infinity loop
       dialogs.forEach(function(aRestDialog, aIndex) {
-        log(aIndex + ": auto-fill");
+        log(aIndex + ': auto-fill');
         if (args.promptType !== 'promptPassword')
           aRestDialog.ui.loginTextbox.value = username;
         aRestDialog.ui.password1Textbox.value = password;
         aRestDialog.ui.button0.click();
       });
       if (dialogs.length > 0) {
-        log("All similar dialogs are processed.");
+        log('All similar dialogs are processed.');
       }
       else {
         retryCount++;
         if (retryCount <= maxRetry) {
-          log("No similar dialog, so retry later. (" + retryCount + ")");
+          log('No similar dialog, so retry later. (' + retryCount + ')');
           timer.setTimeout(delayedAutoFill, delay);
         }
       }
@@ -104,7 +104,7 @@ function hookAcceptButton(aDialog)
   aDialog.onButton1 = function(...aArgs) {
     var index = dialogsFor[key].indexOf(aDialog);
     if (index > -1) {
-      log("canceled: " + args.text + "(" + index + ")");
+      log('canceled: ' + args.text + '(' + index + ')');
       dialogsFor[key].splice(index, 1);
     }
     return originalOnCancel.call(this, ...aArgs);
@@ -112,20 +112,20 @@ function hookAcceptButton(aDialog)
 }
 
 
-var TYPE_BROWSER = "navigator:browser";
+var TYPE_BROWSER = 'navigator:browser';
 var global = this;
 function handleWindow(aWindow)
 {
-  log("handleWindow");
+  log('handleWindow');
   var doc = aWindow.document;
   if (doc.documentElement.localName === 'dialog' &&
       doc.documentElement.id === 'commonDialog') {
-    log("commonDialog");
+    log('commonDialog');
     handleCommonDialog(aWindow);
     return;
   } else {
-    log("generalWindow");
-    if (doc.documentElement.getAttribute("windowtype") === TYPE_BROWSER) {
+    log('generalWindow');
+    if (doc.documentElement.getAttribute('windowtype') === TYPE_BROWSER) {
       startObserveTabModalDialogs(aWindow);
     }
     return;
@@ -140,26 +140,26 @@ function handleCommonDialog(aWindow, aRootElement)
   var commonDialog = root.Dialog /* for tabmodaldialog */ ||
                        aWindow.Dialog /* for common dialog */;
   if (!commonDialog) {
-    log("missing common dialog");
+    log('missing common dialog');
     return;
   }
   var args = commonDialog.args;
-  log("args: " + JSON.stringify(args));
+  log('args: ' + JSON.stringify(args));
 
   switch (args.promptType) {
     case 'promptUserAndPass': 
       if (proxyAuthMatcher.test(args.text)) {
-        log("this is a proxy authentication.");
+        log('this is a proxy authentication.');
         if (prefs.getPref(BASE + 'proxy'))
           break;
       }
       if (authWithoutRealmMatcher.test(args.text)) {
-        log("this is an authentication without realm.");
+        log('this is an authentication without realm.');
         if (prefs.getPref(BASE + 'withoutRealm'))
           break;
       }
       if (authWithRealmMatcher.test(args.text)) {
-        log("this is an authentication with realm.");
+        log('this is an authentication with realm.');
         if (prefs.getPref(BASE + 'withRealm'))
           break;
       }
@@ -167,7 +167,7 @@ function handleCommonDialog(aWindow, aRootElement)
 
     case 'promptPassword': 
       if (passwordMatcher.test(args.text)) {
-        log("this is a password prompt.");
+        log('this is a password prompt.');
         if (prefs.getPref(BASE + 'password'))
           break;
       }
@@ -177,7 +177,7 @@ function handleCommonDialog(aWindow, aRootElement)
       return;
   }
 
-  log("ready to hook an authentication dialog.");
+  log('ready to hook an authentication dialog.');
   hookAcceptButton(commonDialog);
 }
 
@@ -186,15 +186,15 @@ var tabModalDialogObservers = new WeakMap();
 
 function handleMutationsOnBrowserWindow(aMutations, aObserver) {
   aMutations.forEach(function(aMutation) {
-    if (aMutation.type !== "childList" ||
+    if (aMutation.type !== 'childList' ||
         !aMutation.addedNodes) {
       return;
     }
     Array.forEach(aMutation.addedNodes, function(aNode) {
-      if (aNode.localName !== "tabmodalprompt") {
+      if (aNode.localName !== 'tabmodalprompt') {
         return;
       }
-      log("handle new tabmodalprompt");
+      log('handle new tabmodalprompt');
       var window = aNode.ownerDocument.defaultView;
       window.setTimeout(function() {
         // operate the dialog after successfully initialized
@@ -212,8 +212,8 @@ function startObserveTabModalDialogs(aWindow) {
     subtree:   true
   });
   tabModalDialogObservers.set(aWindow, observer);
-  aWindow.addEventListener("unload", function onunload() {
-    aWindow.removeEventListener("unload", onunload);
+  aWindow.addEventListener('unload', function onunload() {
+    aWindow.removeEventListener('unload', onunload);
     endObserveTabModalDialogs(aWindow);
   });
 }
