@@ -1,5 +1,7 @@
 # No Duplicated Authentication
 
+Download Link: https://addons.mozilla.org/firefox/addon/no-duplicated-authentication/
+
 Suppresses duplicated authentications for same target.
 
 Possibly related bugs:
